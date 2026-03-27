@@ -25,7 +25,7 @@ function PostList({ posts, fetchPosts }) {
   // Delete post
   const deletePost = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/posts/${id}`, {
+      const res = await fetch(`https://fullstack-blog-0jou.onrender.com/api/posts/${id}`, {
         method: "DELETE",
       });
 
@@ -52,10 +52,10 @@ function PostList({ posts, fetchPosts }) {
       <h2>All Posts</h2>
 
       {posts.length === 0 ? (
-        <p>No posts available</p>
+        <p className="message">No posts available</p>
       ) : (
         posts.map((post) => (
-          <div
+          <div className="post"
             key={post._id}
           >
             <h3>{post.title}</h3>
@@ -71,8 +71,8 @@ function PostList({ posts, fetchPosts }) {
 
             <br />
 
-            {/* Delete button */}
-            <button
+
+            <button className="delete-btn"
               onClick={() => deletePost(post._id)}
             >
               Delete

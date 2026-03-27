@@ -7,7 +7,7 @@ function App() {
   const [posts, setPosts] = useState([]);
 
    const fetchPosts = useCallback(async () => {
-    const res = await fetch("http://localhost:5000/api/posts");
+    const res = await fetch("https://fullstack-blog-0jou.onrender.com/api/posts");
     const data = await res.json();
     setPosts(data);
   }, []); 
@@ -17,8 +17,8 @@ function App() {
   }, [fetchPosts]);
 
   return (
-    <div>
-      <h1>My Blog</h1>
+    <div className="container">
+      <h1 className="title"> My Blog</h1>
 
       <PostForm fetchPosts={fetchPosts} />
       <PostList posts={posts} fetchPosts={fetchPosts} />

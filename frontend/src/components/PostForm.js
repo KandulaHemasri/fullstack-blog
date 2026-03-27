@@ -26,7 +26,7 @@ function PostForm({ fetchPosts }) {
     try {
       setLoading(true);
 
-      const res = await fetch("http://localhost:5000/api/posts", {
+      const res = await fetch("https://fullstack-blog-0jou.onrender.com/api/posts", {
         method: "POST",
         body: formData, 
       });
@@ -53,7 +53,7 @@ function PostForm({ fetchPosts }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
+    <form className="form" onSubmit={handleSubmit} >
       <h2>Create Post</h2>
 
       <input
@@ -62,7 +62,6 @@ function PostForm({ fetchPosts }) {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         required
-        style={{ display: "block", marginBottom: "10px", width: "300px" }}
       />
 
       <textarea
@@ -70,17 +69,15 @@ function PostForm({ fetchPosts }) {
         value={content}
         onChange={(e) => setContent(e.target.value)}
         required
-        style={{ display: "block", marginBottom: "10px", width: "300px" }}
       />
 
       <input
         type="file"
         accept="image/*"
         onChange={(e) => setImage(e.target.files[0])}
-        style={{ marginBottom: "10px" }}
       />
 
-      <button type="submit" disabled={loading}>
+      <button className="btn" type="submit" disabled={loading}>
         {loading ? "Uploading..." : "Add Post"}
       </button>
     </form>
@@ -88,3 +85,7 @@ function PostForm({ fetchPosts }) {
 }
 
 export default PostForm;
+
+
+
+
